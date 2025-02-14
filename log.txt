@@ -1,0 +1,77 @@
+Pesan diterima: /lapor | 082236816460 | MD12345 | Jaringan sering putus
+Nomor HP yang diterima: 08223681646012345
+Pesan diterima: /lapor | 082236816460 | MD12345 | Jaringan sering putus
+Nomor HP yang diterima: 08223681646012345
+Pesan diterima: /lapor | 082236816460 |  Jaringan sering putus
+Nomor HP yang diterima: 082236816460
+Pesan diterima: /lapor | 082236816460 |  Jaringan sering putus
+Nomor HP yang diterima: 082236816460
+Pesan diterima: /lapor | 082236816460 |  Jaringan sering putus
+Nomor HP yang diterima: 082236816460
+Pesan diterima: /lapor | 082236816460 |  Jaringan sering putus
+Nomor HP yang diterima: 082236816460
+Pesan diterima: /lapor | 082236816460 |  Jaringan sering putus
+Nomor HP yang diterima: 082236816460
+Pesan diterima: /lapor | 082236816460 |  Jaringan sering putus
+Nomor HP yang diterima: 082236816460
+Pesan diterima: /lapor | 082236816460 |  Jaringan sering putus
+Nomor HP yang diterima: 082236816460
+Pesan diterima: /lapor | 082236816460 |  Jaringan sering putus
+Nomor HP yang diterima: 082236816460
+Pesan diterima: /lapor | 082236816460 |  Jaringan sering putus
+Nomor HP yang diterima: 082236816460
+Pesan diterima: /lapor | 082236816460 |  Jaringan sering putus
+Nomor HP yang diterima: 082236816460
+Pesan diterima: /lapor | 082236816460 | MD12345 | Jaringan sering putus
+Nomor HP yang diterima: 08223681646012345
+Pesan diterima: /lapor | 082236816460 | 2232324343 | Lisktik
+Nomor HP yang diterima: 0822368164602232324343
+Pesan diterima: /lapor | 082236816460 | 2232324343 | Listrik
+Nomor HP yang diterima: 0822368164602232324343
+Pesan diterima: /lapor | 082236816460 | 2232324343 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 2232324343
+Pesan diterima: /lapor | 082236816460 | 2232324343 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 2232324343
+Pesan diterima: /lapor | 082236816460 | 2232324ef3 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323243
+Pesan diterima: /lapor | 082236816460 | 2232324ef3 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323243
+Pesan diterima: /start
+Pesan diterima: /lapor | 082236816460 | 2232324ef3 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323243
+Pesan diterima: /lapor | 082236816460 | 2232324ef3 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323243
+Pesan diterima: /lapor | 082236816460 | 2232324ef3 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323243
+Pesan diterima: /lapor | 082236816460 | 2232324ef3 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323243
+Pesan diterima: /lapor | 082236816460 | 2232324ef3 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323243
+Pesan diterima: /lapor | 082236816460 | 2232324ef3 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323243
+Pesan diterima: /lapor | 082236816460 | 2232324ef3 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323243
+Pesan diterima: /lapor | 082236816460 | 2232324ef3 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323243
+Pesan diterima: /lapor | 082236816460 | 2232324ef3 | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323243
+Pesan diterima: /lapor | 082236816460 | 22323FDd | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323
+Pesan diterima: /start
+Pesan diterima: /lapor | 082236816460 | 22323FDd | Listrik
+Nomor HP yang diterima: 082236816460
+Nomor Modem yang diterima: 22323
