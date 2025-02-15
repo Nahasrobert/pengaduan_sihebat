@@ -66,53 +66,58 @@ $result = $conn->query("SELECT tbl_profil.* from tbl_profil");
                     <div class="table_section padding_infor_info">
                         <div class="table-responsive-sm">
                             <table id="tabel-data" class="display" style="width:100%">
-                            <thead>
-    <tr>
-        <th>No</th>
-        <th>Nama</th>
-        <th>Visi</th>
-        <th>Misi</th>
-        <th>Perwali</th>
-        <th>SOP</th>
-        <th>Manual Book</th>
-        <th>Keterangan</th>
-        <th>Email</th>
-        <th>Nomor HP</th>
-        <th>Aksi</th>
-    </tr>
-</thead>
-<tbody>
-    <?php while ($row = $result->fetch_assoc()) { ?>
-        <tr>
-            <td>#<?= $row['id_profil'] ?></td>
-            <td><?= $row['nama'] ?></td>
-            <td><?= $row['visi'] ?></td>
-            <td><?= $row['misi'] ?></td>
-            <td><a href="<?= $row['perwali'] ?>" target="_blank">Lihat PDF</a></td>
-            <td><a href="<?= $row['sop'] ?>" target="_blank">Lihat PDF</a></td>
-            <td><a href="<?= $row['manual_book'] ?>" target="_blank">Lihat PDF</a></td>
-            <td><?= $row['keterangan'] ?></td>
-            <td><?= $row['email'] ?></td>
-            <td><?= $row['nomor_hp'] ?></td>
-            <td>
-           
-    <div class="btn-group" role="group">
-        <a href="edit_profil.php?id=<?= $row['id_profil'] ?>" class="btn btn-warning">Edit</a>
-        <form action="process_profil.php" method="POST" class="d-inline delete-form">
-            <input type="hidden" name="delete_id" value="<?= $row['id_profil'] ?>">
-            <button type="submit" name="delete" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
-                Hapus
-            </button>
-        </form>
-    </div>
-</td>
-
-
-
-        </tr>
-    <?php } ?>
-</tbody>
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Visi</th>
+                                        <th>Misi</th>
+                                        <th>Perwali</th>
+                                        <th>SOP</th>
+                                        <th>Manual Book</th>
+                                        <th>Keterangan</th>
+                                        <th>Email</th>
+                                        <th>Nomor HP</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $no = 1; // Inisialisasi nomor urut
+                                    while ($row = $result->fetch_assoc()) { ?>
+                                        <tr>
+                                            <td><?= $no++ ?></td> <!-- Tambahkan nomor urut -->
+                                            <td><?= $row['nama'] ?></td>
+                                            <td><?= $row['visi'] ?></td>
+                                            <td><?= $row['misi'] ?></td>
+                                            <td><a href="../uploads/<?= $row['perwali'] ?>" target="_blank">Lihat PDF</a>
+                                            </td>
+                                            <td><a href="../uploads/<?= $row['sop'] ?>" target="_blank">Lihat PDF</a></td>
+                                            <td><a href="../uploads/<?= $row['manual_book'] ?>" target="_blank">Lihat
+                                                    PDF</a></td>
+                                            <td><?= $row['keterangan'] ?></td>
+                                            <td><?= $row['email'] ?></td>
+                                            <td><?= $row['nomor_hp'] ?></td>
+                                            <td>
+                                                <div class="btn-group" role="group">
+                                                    <a href="edit_profil.php?id=<?= $row['id_profil'] ?>"
+                                                        class="btn btn-warning">Edit</a>
+                                                    <form action="process_profil.php" method="POST"
+                                                        class="d-inline delete-form">
+                                                        <input type="hidden" name="delete_id"
+                                                            value="<?= $row['id_profil'] ?>">
+                                                        <button type="submit" name="delete" class="btn btn-danger"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                                            Hapus
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
                             </table>
+
 
                         </div>
                     </div>
@@ -122,30 +127,30 @@ $result = $conn->query("SELECT tbl_profil.* from tbl_profil");
     </div>
 </div>
 <script>
-// Attach event listener to delete buttons
-document.querySelectorAll('.delete-btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent the default action (navigation)
+    // Attach event listener to delete buttons
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default action (navigation)
 
-        const userId = this.getAttribute('data-id');
+            const userId = this.getAttribute('data-id');
 
-        // SweetAlert2 confirmation
-        Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Data ini akan dihapus permanen!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batal',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Redirect to process.php with the id_admin to delete
-                window.location.href = `process_profil.php?id=${userId}`;
-            }
+            // SweetAlert2 confirmation
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data ini akan dihapus permanen!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batal',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect to process.php with the id_admin to delete
+                    window.location.href = `process_profil.php?id=${userId}`;
+                }
+            });
         });
     });
-});
 </script>
 
 <?php include '../layouts/footer.php'; ?>

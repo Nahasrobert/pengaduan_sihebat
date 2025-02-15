@@ -3,19 +3,17 @@ $title = "Beranda | Admin";
 include '../config.php'; // Pastikan koneksi database disertakan
 include '../layouts/header.php';
 
-// Mengambil jumlah  (user dengan role pelapor)
-$jumlah_pd = $conn->query("SELECT COUNT(*) AS total FROM tbl_perangkat_daerah ")->fetch_assoc()['total'];
+// Mengambil jumlah instansi (perangkat daerah)
+$jumlah_pd = $conn->query("SELECT COUNT(*) AS total FROM tbl_perangkat_daerah")->fetch_assoc()['total'];
 
-// Mengambil jumlah tiket yang dibuat oleh pelapor
-$jumlah_pengaduan = $conn->query("SELECT COUNT(*) AS total FROM tbl_pengaduan 
-                                    ")->fetch_assoc()['total'];
+// Mengambil jumlah pengaduan (total semua status)
+$jumlah_pengaduan = $conn->query("SELECT COUNT(*) AS total FROM tbl_pengaduan")->fetch_assoc()['total'];
 
-// Mengambil jumlah tiket dalam proses
-$jumlah_pegawai = $conn->query("SELECT COUNT(*) AS total FROM tbl_pegawai 
-                                    ")->fetch_assoc()['total'];
+// Mengambil jumlah pengaduan dengan status "Selesai"
+$jumlah_pengaduan_selesai = $conn->query("SELECT COUNT(*) AS total FROM tbl_pengaduan WHERE status = 'Selesai'")->fetch_assoc()['total'];
 
-
-
+// Query untuk menghitung jumlah pegawai
+$jumlah_pegawai = $conn->query("SELECT COUNT(*) AS total FROM tbl_pegawai")->fetch_assoc()['total'];
 
 ?>
 
@@ -28,11 +26,14 @@ $jumlah_pegawai = $conn->query("SELECT COUNT(*) AS total FROM tbl_pegawai
                 </div>
             </div>
         </div>
+
+        <!-- Statistik -->
         <div class="row column1">
-            <div class="col-md-6 col-lg-4">
+            <!-- Jumlah Instansi -->
+            <div class="col-md-6 col-lg-3">
                 <div class="full counter_section margin_bottom_30">
                     <div class="couter_icon">
-                        <div><i class="fa fa-users yellow_color"></i></div>
+                        <div><i class="fa fa-building yellow_color"></i></div>
                     </div>
                     <div class="counter_no">
                         <div>
@@ -42,7 +43,9 @@ $jumlah_pegawai = $conn->query("SELECT COUNT(*) AS total FROM tbl_pegawai
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
+
+            <!-- Jumlah Pengaduan -->
+            <div class="col-md-6 col-lg-3">
                 <div class="full counter_section margin_bottom_30">
                     <div class="couter_icon">
                         <div><i class="fa fa-ticket blue1_color"></i></div>
@@ -50,15 +53,32 @@ $jumlah_pegawai = $conn->query("SELECT COUNT(*) AS total FROM tbl_pegawai
                     <div class="counter_no">
                         <div>
                             <p class="total_no"><?= number_format($jumlah_pengaduan) ?></p>
-                            <p class="head_couter">Jumlah Pengaduan</p>
+                            <p class="head_couter">Total Pengaduan</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
+
+            <!-- Pengaduan Selesai -->
+            <div class="col-md-6 col-lg-3">
                 <div class="full counter_section margin_bottom_30">
                     <div class="couter_icon">
-                        <div><i class="fa fa-spinner red_color"></i></div>
+                        <div><i class="fa fa-check-circle green_color"></i></div>
+                    </div>
+                    <div class="counter_no">
+                        <div>
+                            <p class="total_no"><?= number_format($jumlah_pengaduan_selesai) ?></p>
+                            <p class="head_couter">Pengaduan Selesai</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jumlah Pegawai -->
+            <div class="col-md-6 col-lg-3">
+                <div class="full counter_section margin_bottom_30">
+                    <div class="couter_icon">
+                        <div><i class="fa fa-users red_color"></i></div>
                     </div>
                     <div class="counter_no">
                         <div>
@@ -69,8 +89,6 @@ $jumlah_pegawai = $conn->query("SELECT COUNT(*) AS total FROM tbl_pegawai
                 </div>
             </div>
         </div>
-
-    
     </div>
 
     <!-- Script Chart.js -->

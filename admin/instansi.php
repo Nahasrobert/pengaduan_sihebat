@@ -74,28 +74,26 @@ $result = $conn->query("SELECT tbl_perangkat_daerah.* from tbl_perangkat_daerah"
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($row = $result->fetch_assoc()) {
-                                        // Tentukan warna badge berdasarkan status tiket
-                                    
-                                    ?>
+                                    <?php
+                                    $no = 1; // Inisialisasi nomor urut
+                                    while ($row = $result->fetch_assoc()) { ?>
                                         <tr>
-                                            <th>#<?= $row['id_perangkat_daerah'] ?></th>
+                                            <td><?= $no++ ?></td> <!-- Nomor urut otomatis -->
                                             <td><?= $row['nama_perangkat_daerah'] ?></td>
-                                         
                                             <td>
-                                            <div class="btn-group" role="group" aria-label="User Actions">
-                                                <a href="edit_instansi.php?id=<?= $row['id_perangkat_daerah'] ?>"
-                                                    class="btn btn-warning">Edit</a>
-                                                <!-- Use JavaScript for delete confirmation -->
-                                                <a href="#" class="btn btn-danger delete-btn"
-                                                    data-id="<?= $row['id_perangkat_daerah'] ?>">Hapus</a>
-                                            </div>
-                                        </td>
-
+                                                <div class="btn-group" role="group" aria-label="User Actions">
+                                                    <a href="edit_instansi.php?id=<?= $row['id_perangkat_daerah'] ?>"
+                                                        class="btn btn-warning">Edit</a>
+                                                    <!-- Use JavaScript for delete confirmation -->
+                                                    <a href="#" class="btn btn-danger delete-btn"
+                                                        data-id="<?= $row['id_perangkat_daerah'] ?>">Hapus</a>
+                                                </div>
+                                            </td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
+
 
                         </div>
                     </div>
@@ -105,30 +103,30 @@ $result = $conn->query("SELECT tbl_perangkat_daerah.* from tbl_perangkat_daerah"
     </div>
 </div>
 <script>
-// Attach event listener to delete buttons
-document.querySelectorAll('.delete-btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent the default action (navigation)
+    // Attach event listener to delete buttons
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default action (navigation)
 
-        const userId = this.getAttribute('data-id');
+            const userId = this.getAttribute('data-id');
 
-        // SweetAlert2 confirmation
-        Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Data ini akan dihapus permanen!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batal',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Redirect to process.php with the id_admin to delete
-                window.location.href = `process_instansi.php?id=${userId}`;
-            }
+            // SweetAlert2 confirmation
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data ini akan dihapus permanen!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batal',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect to process.php with the id_admin to delete
+                    window.location.href = `process_instansi.php?id=${userId}`;
+                }
+            });
         });
     });
-});
 </script>
 
 <?php include '../layouts/footer.php'; ?>

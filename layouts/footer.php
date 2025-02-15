@@ -1,8 +1,7 @@
 <!-- footer -->
 <div class="footer">
-    <p class="powered">&copy; <?= date("Y"); ?> | <strong>Tapaleuk Programmer</strong>. All Rights Reserved.<br>
-        <span>Powered by</span> <a href="https://tapaleukprogrammer.com/" target="_blank">Tapaleuk
-            Programmer</a>
+    <p class="powered">&copy; <?= date("Y"); ?> | <strong>Pengaduan SiHebat</strong>. All Rights Reserved<br>
+        <span>Powered by</span> <a href="https://tapaleukprogrammer.com/" target="_blank">Pengaduan SiHebat</a>
     </p>
 </div>
 </div>
