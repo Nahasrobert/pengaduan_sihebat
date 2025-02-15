@@ -5,7 +5,8 @@ include '../config.php';
 $uploadDir = "../uploads/";
 
 // Fungsi untuk menghandle upload file
-function uploadFile($file, $uploadDir) {
+function uploadFile($file, $uploadDir)
+{
     if ($file['error'] === 0) {
         $fileExt = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
@@ -120,4 +121,3 @@ if (isset($_POST['delete'])) {
     }
     exit();
 }
-?>

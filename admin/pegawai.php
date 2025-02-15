@@ -43,16 +43,16 @@ join tbl_perangkat_daerah on tbl_pegawai.id_perangkat_daerah = tbl_perangkat_dae
         </div>
 
         <?php if (isset($_GET['success']) || isset($_GET['error'])) : ?>
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-            <script>
-                Swal.fire({
-                    title: "<?= isset($_GET['success']) ? 'Berhasil!' : 'Gagal!' ?>",
-                    text: "<?= isset($_GET['success']) ? $_GET['success'] : $_GET['error'] ?>",
-                    icon: "<?= isset($_GET['success']) ? 'success' : 'error' ?>",
-                    confirmButtonColor: "#3085d6",
-                    confirmButtonText: "OK"
-                });
-            </script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+        Swal.fire({
+            title: "<?= isset($_GET['success']) ? 'Berhasil!' : 'Gagal!' ?>",
+            text: "<?= isset($_GET['success']) ? $_GET['success'] : $_GET['error'] ?>",
+            icon: "<?= isset($_GET['success']) ? 'success' : 'error' ?>",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "OK"
+        });
+        </script>
         <?php endif; ?>
 
         <div class="row">
@@ -78,32 +78,28 @@ join tbl_perangkat_daerah on tbl_pegawai.id_perangkat_daerah = tbl_perangkat_dae
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($row = $result->fetch_assoc()) {
-                                        // Tentukan warna badge berdasarkan status tiket
-                                    
-                                    ?>
-                                        <tr>
-                                            <th>#<?= $row['id_pegawai'] ?></th>
-                                            <td><?= $row['nama'] ?></td>
-                                            <td><?= $row['nip_nrp'] ?></td>
-                                            <td><?= $row['nomor_telpon'] ?></td>
-                                            <td><?= $row['nama_perangkat_daerah'] ?></td>
-                                        
-                                         
-                                            <td>
+                                    <?php
+                                    $no = 1; // Inisialisasi nomor urut
+                                    while ($row = $result->fetch_assoc()) { ?>
+                                    <tr>
+                                        <td><?= $no++ ?></td> <!-- Tambahkan nomor urut -->
+                                        <td><?= $row['nama'] ?></td>
+                                        <td><?= $row['nip_nrp'] ?></td>
+                                        <td><?= $row['nomor_telpon'] ?></td>
+                                        <td><?= $row['nama_perangkat_daerah'] ?></td>
+                                        <td>
                                             <div class="btn-group" role="group" aria-label="User Actions">
                                                 <a href="edit_pegawai.php?id=<?= $row['id_pegawai'] ?>"
                                                     class="btn btn-warning">Edit</a>
-                                                <!-- Use JavaScript for delete confirmation -->
                                                 <a href="#" class="btn btn-danger delete-btn"
                                                     data-id="<?= $row['id_pegawai'] ?>">Hapus</a>
                                             </div>
                                         </td>
-
-                                        </tr>
+                                    </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
+
 
                         </div>
                     </div>

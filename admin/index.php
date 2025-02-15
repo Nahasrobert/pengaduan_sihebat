@@ -38,27 +38,29 @@ $result = $conn->query("SELECT * FROM tbl_admin");
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php while ($row = $result->fetch_assoc()) { ?>
-                                    <tr>
-                                        <td><?= $row['id_admin'] ?></td>
-                                        <td><?= $row['username'] ?></td>
-                                        <td><?= $row['email'] ?></td>
-                                        <td><?= $row['password'] ?></td>
-                                        <td><?= $row['role'] ?></td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="User Actions">
-                                                <a href="edit.php?id=<?= $row['id_admin'] ?>"
-                                                    class="btn btn-warning">Edit</a>
-                                                <!-- Use JavaScript for delete confirmation -->
-                                                <a href="#" class="btn btn-danger delete-btn"
-                                                    data-id="<?= $row['id_admin'] ?>">Hapus</a>
-                                            </div>
-                                        </td>
-
-                                    </tr>
+                                    <?php
+                                    $no = 1; // Inisialisasi nomor urut
+                                    while ($row = $result->fetch_assoc()) { ?>
+                                        <tr>
+                                            <td><?= $no++ ?></td> <!-- Nomor urut otomatis -->
+                                            <td><?= $row['username'] ?></td>
+                                            <td><?= $row['email'] ?></td>
+                                            <td><?= $row['password'] ?></td>
+                                            <td><?= $row['role'] ?></td>
+                                            <td>
+                                                <div class="btn-group" role="group" aria-label="User Actions">
+                                                    <a href="edit.php?id=<?= $row['id_admin'] ?>"
+                                                        class="btn btn-warning">Edit</a>
+                                                    <!-- Use JavaScript for delete confirmation -->
+                                                    <a href="#" class="btn btn-danger delete-btn"
+                                                        data-id="<?= $row['id_admin'] ?>">Hapus</a>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
+
                         </div>
                     </div>
                 </div>
@@ -68,30 +70,30 @@ $result = $conn->query("SELECT * FROM tbl_admin");
 </div>
 
 <script>
-// Attach event listener to delete buttons
-document.querySelectorAll('.delete-btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent the default action (navigation)
+    // Attach event listener to delete buttons
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default action (navigation)
 
-        const userId = this.getAttribute('data-id');
+            const userId = this.getAttribute('data-id');
 
-        // SweetAlert2 confirmation
-        Swal.fire({
-            title: 'Apakah Anda yakin?',
-            text: "Data ini akan dihapus permanen!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Hapus',
-            cancelButtonText: 'Batal',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Redirect to process.php with the id_admin to delete
-                window.location.href = `process.php?id=${userId}`;
-            }
+            // SweetAlert2 confirmation
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data ini akan dihapus permanen!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batal',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect to process.php with the id_admin to delete
+                    window.location.href = `process.php?id=${userId}`;
+                }
+            });
         });
     });
-});
 </script>
 
 <?php include '../layouts/footer.php'; ?>
