@@ -12,6 +12,7 @@
 </div>
 <style>
     .footer {
+
         text-align: center;
         padding: 20px;
         background: #222;
@@ -60,6 +61,11 @@
 <!-- custom js -->
 <script src="../js/custom.js"></script>
 <script src="../js/chart_custom_style1.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css">
+<script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#tabel-data').DataTable({
@@ -67,7 +73,33 @@
             "searching": true,
             "ordering": true,
             "info": true,
-            "lengthMenu": [10, 25, 50, 100]
+            "lengthMenu": [10, 25, 50, 100],
+            "dom": 'Bfrtip',
+            "buttons": [{
+                    extend: 'pdf',
+                    title: 'Data Tabel',
+                    filename: 'data_tabel',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'excel',
+                    title: 'Data Tabel',
+                    filename: 'data_tabel',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'csv',
+                    title: 'Data Tabel',
+                    filename: 'data_tabel',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }
+            ]
         });
     });
 </script>
